@@ -1,5 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+/* ::-webkit-scrollbar{
+    background-color: rgba(0, 0, 255, 0);
+    /* background-color: red; */
+
+ /*}
+
+::-webkit-scrollbar-thumb{
+    background: gray;
+    border-radius: 30px;
+} */
+
+
 html{
     scroll-behavior: smooth;
 }
@@ -25,14 +37,14 @@ main{
     grid-template-columns: auto 1fr;
     width: 100vw;
     height: 100vh;
-    border:solid yellow 2px;
+    /* border:solid yellow 2px; */
 }
 aside{
     border: solid red 3px;
-    width: 25vw;
+    width: 20vw;
 }
 .content{
-    border: solid blue 3px;
+    /* border: solid blue 3px; */
     display: grid;
     grid-template-rows: auto 1fr;
     overflow-y: hidden;

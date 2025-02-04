@@ -3,9 +3,9 @@
     width: 200px;
     border: solid rgba(67, 66, 66, 0.874) 1px;
     border-radius: 20px;
-
+    overflow: hidden;
 }
-img{
+.card img{
     width: inherit;
     height: auto;
     border-radius: 20px;
@@ -23,4 +23,58 @@ img{
 }
 .pause{
     display: none;
+}
+
+.player{
+    display: none;
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    width: 100vw;
+    height: 72px;
+}
+.playerleft{
+    display: flex;
+    /* border: solid white 2px; */
+    flex-grow: 1;
+}
+.playercenter{
+    /* border: solid white 2px; */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+
+}
+#controls{
+    /* border: solid blue 3px; */
+    flex-grow: 3;
+}
+#progress{
+    /* border: solid yellow 3px; */
+    flex-grow: 1;
+}
+#progressbar{
+    width: 100%;
+    height: 3px;
+    /* -webkit-appearance: none; */
+}
+
+.playerright{
+    /* border: solid white 2px; */
+    flex-grow: 1;
+
+}
+#thumbdiv{
+    /* border: solid white 2px; */
+    height: 55px;
+    width: 55px;
+    margin-left: 10px;
+    margin-block: auto;
+    border-radius: 10px;
+}
+#thumb{
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
 }

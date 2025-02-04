@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="utils.css">
 </head>
 <body>
-    <nav></nav>
+    <!-- <nav></nav> -->
     <main>
         <aside>aside</aside>
         <div class="content">
@@ -63,10 +63,10 @@
                             <div class="artistname"></div>
                         </div>
                         <div class="card">
-                            <img src="" alt="">
+                            <img src="https://c.saavncdn.com/339/A-Flying-Jatt-Hindi-2016-20190819110720-500x500.jpg" alt="">
                             <button class="play"><i class="fa-solid fa-play"></i></button>
                             <button class="pause"><i class="fa-solid fa-pause"></i></button>
-                            <div class="songname"></div>
+                            <div class="songname">Toota Jo Kabhi Taara</div>
                             <div class="artistname"></div>
                         </div>
                     </div>
@@ -75,10 +75,10 @@
                     <div class="platterhead">All Time Hits</div>
                     <div class="plattercards">
                         <div class="card">
-                            <img src="" alt="">
+                            <img src="https://c.saavncdn.com/550/Mr-X-In-Bombay-Hindi-1964-20200901153955-500x500.jpg" alt="">
                             <button class="play"><i class="fa-solid fa-play"></i></button>
                             <button class="pause"><i class="fa-solid fa-pause"></i></button>
-                            <div class="songname"></div>
+                            <div class="songname">Mere Mehboob</div>
                             <div class="artistname"></div>
                         </div>
                         <div class="card">
@@ -236,7 +236,18 @@
             </div>
         </div>
     </main>
-    <div class="player"></div>
+    <div class="player" id="player">
+        <div class="playerleft">
+            <div id="thumbdiv"><img src="" alt="" id="thumb"></div>
+        </div>
+        <div class="playercenter">
+            <div id="controls"></div>
+            <div id="progress">
+                <input type="range" name="progressbar" id="progressbar">
+            </div>
+        </div>
+        <div class="playerright"></div>
+    </div>
 </body>
 <script src="script.js"></script>
 </html>

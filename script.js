@@ -1,5 +1,11 @@
 const cards = document.querySelectorAll(".card")
 let songData = {}
+let currentAudio = null
+let currentPause = null
+let currentPlay = null
+const player = document.querySelector("#player")
+let thumbnail = document.querySelector("#thumb")
+let progressbar = document.querySelector("#progressbar")
 fetch("./database/audios.json")
     .then(response => response.json())
     .then(data => {
@@ -18,13 +24,26 @@ cards.forEach(card => {
         }
     }, 1000);
     if(title){playbutton.addEventListener('click', ()=>{
-            audio.play()
-            playbutton.style.display = "none"
-            pausebutton.style.display = "block"
+            if(currentAudio && currentAudio!=audio){
+            currentAudio.pause()
+            if(currentPause&&currentPlay){currentPlay.style.display = "block"
+            currentPause.style.display = "none"}
+        }
+        audio.play()
+        thumbnail.setAttribute("src", card.getElementsByTagName("img")[0].getAttribute("src"))
+        player.style.display = "flex"
+        currentAudio = audio
+        currentPlay = playbutton
+        currentPause = pausebutton
+        playbutton.style.display = "none"
+        pausebutton.style.display = "block"
         
     })}
     pausebutton.addEventListener('click', ()=>{
         audio.pause()
+        currentAudio = null
+        currentPause = null
+        currentPlay = null
         pausebutton.style.display = "none"
         playbutton.style.display = "block"
     })
