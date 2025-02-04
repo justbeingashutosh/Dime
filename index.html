@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dime | Groove on the Go</title>
+    <title>Dyme | Groove on the Go</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="utils.css">
@@ -11,7 +11,14 @@
 <body>
     <!-- <nav></nav> -->
     <main>
-        <aside>aside</aside>
+        <aside id="sidebar">
+            <div class="top">
+            <div class="logocontainer">
+                <img src="assets/logo.png" alt="" id="logo">
+            </div>
+            <button id="hide"><i class="fa-solid fa-circle-chevron-left"></i></button>
+        </div>
+        </aside>
         <div class="content">
             <div class="searchdiv">
                 <input type="text" class="searchbox" placeholder="Search a Song" autocomplete="false" spellcheck="false">
@@ -241,9 +248,11 @@
             <div id="thumbdiv"><img src="" alt="" id="thumb"></div>
         </div>
         <div class="playercenter">
-            <div id="controls"></div>
+            <div id="controls">
+                <!-- <button id="barplay"><i class="fa-solid fa-play"></i></button> -->
+            </div>
             <div id="progress">
-                <input type="range" name="progressbar" id="progressbar">
+                <input type="range" name="" id="progressbar">
             </div>
         </div>
         <div class="playerright"></div>
