@@ -156,8 +156,9 @@ aside{
 
 @media(max-width: 425px){
     aside{
-        width: 72px;
+        height: 72px;
         position: sticky;
+        width: 100vw;
         bottom: 0;
         left: 0;
     }
