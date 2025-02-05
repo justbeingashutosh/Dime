@@ -158,8 +158,8 @@ aside{
         flex-direction: column-reverse;
     }
     .card{
-        height: 150px;
-        width: 100px;
+        height: 225px;
+        width: 150px;
     }
     #sidebar{
         height: 40px;
@@ -170,6 +170,7 @@ aside{
         justify-content: center;
         bottom: 0;
         left: 0;
+        z-index: 30;
         /* border:solid red 3px; */
         
     }
