@@ -157,12 +157,13 @@ main{
 @media(max-width: 425px){
     #sidebar{
         height: 72px;
-        position: absolute;
+        /* position: absolute; */
         width: 100vw;
-        bottom: 0;
-        left: 0;
+        /* bottom: 0;
+        left: 0; */
     }
     main{
+        grid-template-rows:auto 1fr;
         grid-template-rows: 1fr;
     }
     #logo{
