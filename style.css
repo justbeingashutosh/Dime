@@ -32,7 +32,7 @@ main{
     height: 100vh;
     /* border:solid yellow 2px; */
 }
-#sidebar{
+aside{
     border-right: solid rgb(83, 83, 83) 2px;
     width: 20vw;
 }
@@ -41,7 +41,6 @@ main{
     display: grid;
     grid-template-rows: auto 1fr;
     overflow-y: hidden;
-    border: solid red 5px;
 }
 .searchdiv{
     width: inherit;
@@ -50,7 +49,6 @@ main{
     align-items: center;
     justify-content: center;
     margin-top: 40px;
-    /* max-width: 100vw; */
 }
 .searchbox{
     border-radius: 10px;
@@ -154,22 +152,77 @@ main{
     cursor: pointer;
 }
 
-@media(max-width: 425px){
+@media(max-width: 475px){
+    main{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .card{
+        height: 150px;
+        width: 100px;
+    }
     #sidebar{
-        height: 72px;
+        height: 40px;
         /* position: absolute; */
-        width: 100vw;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         /* bottom: 0;
         left: 0; */
+        /* border:solid red 3px; */
+        
     }
-    main{
-        grid-template-rows:auto 1fr;
-        grid-template-rows: 1fr;
+    .content{
+        flex-grow: 1;
     }
-    #logo{
-        display: none;
+    #thumbdiv{
+        height: 40px;
+        width: 40px;
     }
-    #hide{
+    .nav{
+        /* border: solid blue 4px; */
+        height: 30px;
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* align-self: flex-start; */
+        /* display: flex; */
+        margin-top: 0%;
+        /* height: fit-content; */
+        /* padding: 7px; */
+    
+    }
+    .download{
+        border-radius: 20px;
+        font-size: 1em;
+    }
+    #progressbar{
+        height: 4px;
+    }
+    .player{
+        bottom: 50px;
+        width: 80vw;
+        margin-inline: auto;
+        border-radius: 20px;
+        border: solid gray 1px;
+        height: 50px;
+        padding-inline-end: 1%;
+    }
+    .searchbox{
+        width: 80%;
+    }
+    .navels{
+        height: fit-content;
+        font-size: 1em;
+        width: fit-content;
+        padding: 8px;
+        /* padding-inline: 15px; */
+        margin-inline: 10%;
+        margin-block-end: 0px;
+    }
+    .top{
         display: none;
     }
     .text{
