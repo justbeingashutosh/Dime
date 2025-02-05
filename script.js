@@ -3,8 +3,6 @@ let songData = {}
 let currentAudio = null
 let currentPause = null
 let currentPlay = null
-let audioLoc = null
-
 const player = document.querySelector("#player")
 let thumbnail = document.querySelector("#thumb")
 let progressbar = document.querySelector("#progressbar")
@@ -13,7 +11,6 @@ let sidebar = document.querySelector("#sidebar")
 const navels = document.querySelectorAll(".navels")
 const nav =  document.querySelector(".nav")
 const searchBox = document.querySelector(".searchbox")
-let download =  document.querySelector(".download")
 fetch("./database/audios.json")
     .then(response => response.json())
     .then(data => {
@@ -28,7 +25,6 @@ cards.forEach(card => {
     let pausebutton = card.querySelector(".pause")
     setTimeout(() => {
         if (songData[title]) {
-            audioLoc = songData[title]
             audio = new Audio(songData[title]);
             
         }
@@ -108,8 +104,4 @@ searchBox.addEventListener('focus', ()=>{
         navel1.classList.remove("active")
     }
     document.querySelector(".search").classList.add("active")
-})
-
-download.addEventListener('click', ()=>{
-    download.setAttribute("href", audioLoc)
 })
