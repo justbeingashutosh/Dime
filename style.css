@@ -32,7 +32,7 @@ main{
     height: 100vh;
     /* border:solid yellow 2px; */
 }
-aside{
+#sidebar{
     border-right: solid rgb(83, 83, 83) 2px;
     width: 20vw;
 }
@@ -155,9 +155,9 @@ aside{
 }
 
 @media(max-width: 425px){
-    aside{
+    #sidebar{
         height: 72px;
-        position: fixed;
+        position: sticky;
         width: 100vw;
         bottom: 0;
         left: 0;
