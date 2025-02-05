@@ -41,7 +41,7 @@ aside{
     display: grid;
     grid-template-rows: auto 1fr;
     overflow-y: hidden;
-    /* border: solid red 5px; */
+    border: solid red 5px;
 }
 .searchdiv{
     width: inherit;
@@ -157,12 +157,12 @@ aside{
 @media(max-width: 425px){
     aside{
         height: 72px;
-        position: sticky;
+        position: fixed;
         width: 100vw;
         bottom: 0;
         left: 0;
     }
-    .content{
+    main{
         grid-template-rows: 1fr;
     }
     #logo{
