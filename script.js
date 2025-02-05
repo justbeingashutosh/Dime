@@ -3,11 +3,17 @@ let songData = {}
 let currentAudio = null
 let currentPause = null
 let currentPlay = null
+let audioLoc = null
+
 const player = document.querySelector("#player")
 let thumbnail = document.querySelector("#thumb")
 let progressbar = document.querySelector("#progressbar")
 let hide = document.querySelector("#hide")
 let sidebar = document.querySelector("#sidebar")
+const navels = document.querySelectorAll(".navels")
+const nav =  document.querySelector(".nav")
+const searchBox = document.querySelector(".searchbox")
+let download =  document.querySelector(".download")
 fetch("./database/audios.json")
     .then(response => response.json())
     .then(data => {
@@ -22,6 +28,7 @@ cards.forEach(card => {
     let pausebutton = card.querySelector(".pause")
     setTimeout(() => {
         if (songData[title]) {
+            audioLoc = songData[title]
             audio = new Audio(songData[title]);
             
         }
@@ -68,9 +75,41 @@ hide.addEventListener('click', ()=>{
     logo.style.display = "none"
     sidebar.style.width="72px"
     hide.innerHTML = '<i class="fa-solid fa-circle-chevron-right"></i>'
+    navels.forEach(navel =>{
+        navel.querySelector(".text").style.display = "none"
+    })
+    nav.style.marginTop = "100%"
     }else{
         sidebar.style.width = "20vw"
         logo.style.display = "block"
         hide.innerHTML = '<i class="fa-solid fa-circle-chevron-left"></i>'
+        navels.forEach(navel =>{
+            navel.querySelector(".text").style.display = "block"
+        })
+    nav.style.marginTop = "20%"
+
     }
+})
+
+navels.forEach(navel => {
+    navel.addEventListener('click', ()=>{
+        for(navel1 of navels){
+            navel1.classList.remove("active")
+        }
+        navel.classList.add("active")
+        if(navel.classList.contains("search")){
+            searchBox.focus()
+        }
+    })
+})
+
+searchBox.addEventListener('focus', ()=>{
+    for(navel1 of navels){
+        navel1.classList.remove("active")
+    }
+    document.querySelector(".search").classList.add("active")
+})
+
+download.addEventListener('click', ()=>{
+    download.setAttribute("href", audioLoc)
 })

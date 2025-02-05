@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="utils.css">
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
 </head>
 <body>
-    <!-- <nav></nav> -->
     <main>
         <aside id="sidebar">
             <div class="top">
@@ -17,6 +17,11 @@
                 <img src="assets/logo.png" alt="" id="logo">
             </div>
             <button id="hide"><i class="fa-solid fa-circle-chevron-left"></i></button>
+        </div>
+        <div class="nav">
+            <div class="home navels active"><i class="fa-solid fa-house"></i> <div class="text">Home</div></div>
+            <div class="search navels"><i class="fa-solid fa-magnifying-glass"></i><div class="text">Search</div></div>
+            <div class="history navels"><i class="fa-regular fa-clock"></i><div class="text">History</div></div>
         </div>
         </aside>
         <div class="content">
@@ -255,7 +260,9 @@
                 <input type="range" name="" id="progressbar">
             </div>
         </div>
-        <div class="playerright"></div>
+        <div class="playerright">
+            <a class="download" download><i class="fa-solid fa-circle-arrow-down"></i></a>
+        </div>
     </div>
 </body>
 <script src="script.js"></script>

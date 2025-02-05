@@ -16,6 +16,7 @@ html{
     scroll-behavior: smooth;
 }
 body{
+    user-select: none;
     padding: 0%;
     margin: 0%;
     background-color: black;
@@ -23,14 +24,6 @@ body{
     font-family: 'Poppins', 'Sans';
     overflow-x: hidden;
     overflow-y: hidden;
-}
-nav{
-    position: sticky;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 72px;
-    background-color: blue;
 }
 main{
     display: grid;
@@ -143,4 +136,18 @@ aside{
     color: rgb(255, 254, 254);
 
 
+}
+.nav{
+    /* border: solid blue 4px; */
+    margin-top: 20%;
+    height: 70%;
+    padding: 7px;
+}
+.download{
+    background-color: black;
+    color: rgb(57, 188, 125);
+    border: none;
+    outline: none;
+    font-size: 2em;
+    cursor: pointer;
 }

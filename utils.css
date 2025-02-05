@@ -63,6 +63,9 @@
 .playerright{
     /* border: solid white 2px; */
     flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 
 }
 #thumbdiv{
@@ -81,4 +84,29 @@
 #logo{
     width: 100%;
     height: auto;
+}
+.navels{
+    font-size: 1.5em;
+    margin-block-end: 15px;
+    border-radius: 10px;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+    height: fit-content;
+    padding-block: 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.navels:hover{
+    background-color: rgb(55, 55, 55);
+}
+.active{
+    background-color: white;
+    color: black;
+}
+.active:hover{
+    background-color: white;
+    color: black;
 }
