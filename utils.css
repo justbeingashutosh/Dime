@@ -33,6 +33,7 @@
     background-color: black;
     width: 100vw;
     height: 72px;
+    /* border: solid red 2px; */
 }
 .playerleft{
     display: flex;

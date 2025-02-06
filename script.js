@@ -3,6 +3,7 @@ let songData = {}
 let currentAudio = null
 let currentPause = null
 let currentPlay = null
+let keys = []
 const player = document.querySelector("#player")
 let thumbnail = document.querySelector("#thumb")
 let progressbar = document.querySelector("#progressbar")
@@ -93,10 +94,15 @@ navels.forEach(navel => {
             navel1.classList.remove("active")
         }
         navel.classList.add("active")
+        document.querySelector(".platter").style.display = "block"
+
         if(navel.classList.contains("search")){
             searchBox.focus()
+            document.querySelector(".platter").style.display = "none"
+
         }
     })
+    
 })
 
 searchBox.addEventListener('focus', ()=>{
@@ -104,4 +110,17 @@ searchBox.addEventListener('focus', ()=>{
         navel1.classList.remove("active")
     }
     document.querySelector(".search").classList.add("active")
+    document.querySelector(".platter").style.display = "none"
+    // document.querySelector(".glassplate").style.opacity = "1"
+})
+searchBox.addEventListener('input', ()=>{
+    fetch("./database/audios.json")
+    .then(response => response.json())
+    .then(data => {
+        const keys = Object.keys(data);
+        if(keys.indexOf(searchBox.value)!=-1){
+            console.log("Found")
+            // document.querySelector(".searchlistcontainer").appendChild()
+        }
+    })
 })
