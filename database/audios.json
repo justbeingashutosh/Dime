@@ -1,16 +1,58 @@
 {
-    "Sahiba": "https://aac.saavncdn.com/485/a3e7d1cc2adfe133f40bbe70d7820224_160.mp4",
-    "Likhe Jo Khat Tujhe": "https://aac.saavncdn.com/281/9bdac8841c015c109eae36d2dc4726f5_sar_160.mp4",
-    "Mai Dhoondhne": "https://aac.saavncdn.com/112/7592616d8b2c04597c1ee01ec373a636_160.mp4",
-    "Someday": "https://aac.saavncdn.com/565/9a6d4614d77d8e7eecb54a120cdd3611_160.mp4",
-    "Tu Hai Kahan": "https://aac.saavncdn.com/397/03202cd6238ff818728815fda7cd5cb0_160.mp4",
-    "Banjaara": "https://aac.saavncdn.com/151/d47f0f0edf55c1ec4ea5633b1ff1ba49_160.mp4",
-    "Toota Jo Kabhi Taara": "https://aac.saavncdn.com/339/213696cde605f1d38ee39f6059bb6397_160.mp4",
-    "Mere Mehboob": "https://aac.saavncdn.com/550/91306a76aad216a6f690d4bffe2205ce_sar_160.mp4",
-    "Husn": "https://aac.saavncdn.com/436/13795b7aa2e87393366162b9e6a6fe88_160.mp4",
-    "Labon Ko": "https://aac.saavncdn.com/056/15f4ea0f635f05ede93c4169d1ece6ac_160.mp4",
-    "Punjabi Kompa": "https://aac.saavncdn.com/108/e32d995aa2c0088968b6b0ed36607089_160.mp4",
-    "Bol Na Halke Halke": "https://aac.saavncdn.com/478/a3871f747f145476909e38b56c44da2f_160.mp4",
-    "King Shit": "https://aac.saavncdn.com/639/a408be28bc9c62044b8af87ca1bb849a_160.mp4",
-    "Bekhayali": "https://aac.saavncdn.com/807/db5027c7f61ea05b4f9841bfc056e1c5_160.mp4"
+    "Sahiba": {
+        "song_link": "https://aac.saavncdn.com/485/a3e7d1cc2adfe133f40bbe70d7820224_160.mp4",
+        "cover_image_link": "https://c.saavncdn.com/485/Sahiba-Hindi-2024-20241112165036-500x500.jpg"
+    },
+    "Likhe Jo Khat Tujhe": {
+        "song_link": "https://aac.saavncdn.com/281/9bdac8841c015c109eae36d2dc4726f5_sar_160.mp4",
+        "cover_image_link": "https://c.saavncdn.com/281/Sleep-Lofi-Hits-Hindi-2022-20220926093919-500x500.jpg"
+    },
+    "Mai Dhoondhne": {
+        "song_link": "https://aac.saavncdn.com/112/7592616d8b2c04597c1ee01ec373a636_160.mp4",
+        "cover_image_link": "https://c.saavncdn.com/112/Heartless-2014-500x500.jpg"
+    },
+    "Someday": {
+        "song_link": "https://aac.saavncdn.com/565/9a6d4614d77d8e7eecb54a120cdd3611_160.mp4",
+        "cover_image_link": "https://c.saavncdn.com/565/Human-Deluxe--English-2021-20210903150638-500x500.jpg"
+    },
+    "Tu Hai Kahan": {
+        "song_link": "https://aac.saavncdn.com/397/03202cd6238ff818728815fda7cd5cb0_160.mp4",
+        "cover_image_link": "https://c.saavncdn.com/397/Tu-hai-kahan-Hindi-2023-20231016122634-500x500.jpg"
+    },
+    "Banjaara": {
+        "song_link": "https://aac.saavncdn.com/151/d47f0f0edf55c1ec4ea5633b1ff1ba49_160.mp4",
+        "cover_image_link": "https://c.saavncdn.com/151/Ek-Villain-Hindi-2014-500x500.jpg"
+    },
+    "Toota Jo Kabhi Taara": {
+        "song_link": "https://aac.saavncdn.com/339/213696cde605f1d38ee39f6059bb6397_160.mp4",
+        "cover_image_link": "https://c.saavncdn.com/339/A-Flying-Jatt-Hindi-2016-20190819110720-500x500.jpg"
+    },
+    "Mere Mehboob": {
+        "song_link": "https://aac.saavncdn.com/550/91306a76aad216a6f690d4bffe2205ce_sar_160.mp4",
+        "cover_image_link": "https://c.saavncdn.com/550/Mr-X-In-Bombay-Hindi-1964-20200901153955-500x500.jpg"
+    },
+    "Husn": {
+        "song_link": "https://aac.saavncdn.com/436/13795b7aa2e87393366162b9e6a6fe88_160.mp4",
+        "cover_image_link": "https://c.saavncdn.com/436/Husn-Hindi-2023-20231129054140-500x500.jpg"
+    },
+    "Labon Ko": {
+        "song_link": "https://aac.saavncdn.com/056/15f4ea0f635f05ede93c4169d1ece6ac_160.mp4",
+        "cover_image_link": "https://c.saavncdn.com/056/Bhool-Bhulaiyaa-Hindi-2007-20241223151003-500x500.jpg"
+    },
+    "Punjabi Kompa": {
+        "song_link": "https://aac.saavncdn.com/108/e32d995aa2c0088968b6b0ed36607089_160.mp4",
+        "cover_image_link": "https://c.saavncdn.com/108/Punjabi-Kompa-Gujarati-2024-20241011022026-500x500.jpg"
+    },
+    "Bol Na Halke Halke": {
+        "song_link": "https://aac.saavncdn.com/478/a3871f747f145476909e38b56c44da2f_160.mp4",
+        "cover_image_link": "https://c.saavncdn.com/478/Jhoom-Barabar-Jhoom-Hindi-2007-20190329181232-500x500.jpg"
+    },
+    "King Shit": {
+        "song_link": "https://aac.saavncdn.com/639/a408be28bc9c62044b8af87ca1bb849a_160.mp4",
+        "cover_image_link": "https://c.saavncdn.com/639/Leo-Punjabi-2024-20240103121125-500x500.jpg"
+    },
+    "Bekhayali": {
+        "song_link": "https://aac.saavncdn.com/807/db5027c7f61ea05b4f9841bfc056e1c5_160.mp4",
+        "cover_image_link": "https://c.saavncdn.com/807/Kabir-Singh-Hindi-2019-20240131131003-500x500.jpg"
+    }
 }
