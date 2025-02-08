@@ -56,6 +56,12 @@
     flex-direction: column;
 
 }
+.historycontainer{
+    display: none;
+    flex-direction: column;
+    /* border: solid red 2px; */
+    gap: 30px;
+}
 #controls{
     /* border: solid blue 3px; */
     flex-grow: 3;
@@ -122,4 +128,37 @@
 .active:hover{
     background-color: white;
     color: black;
+}
+
+
+.bannerthumb{
+    width: inherit;
+    height: auto;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+.banner{
+    height: 70px;
+    width: 100%;
+    border: solid rgba(205, 205, 205, 0.647) 1px;
+    display: flex;
+    gap: 50px;
+    background-color: rgba(240, 255, 255, 0.121);
+    border-radius: 10px;
+    backdrop-filter: blur(25px);
+    color: white;
+    cursor: pointer;
+    box-shadow: 2px 5px 20px rgba(255, 255, 255, 0.234);
+    /* box-shadow: ; */
+}
+.bannerimg{
+    height: 55px;
+    width: 55px;
+    margin-left: 10px;
+    margin-block: auto;
+    border-radius: 5px;
+}
+.bannerhead{
+    margin-block: auto;
 }

@@ -54,5 +54,49 @@
     "Bekhayali": {
         "song_link": "https://aac.saavncdn.com/807/db5027c7f61ea05b4f9841bfc056e1c5_160.mp4",
         "cover_image_link": "https://c.saavncdn.com/807/Kabir-Singh-Hindi-2019-20240131131003-500x500.jpg"
+    },
+    "Hasi":{
+        "song_link": "https://aac.saavncdn.com/656/9844e3294aea0384170cd12a445c3fac_160.mp4",
+        "cover_image_link": "https://c.saavncdn.com/577/Hamari-Adhuri-Kahani-Hindi-2015-500x500.jpg"
+    },
+    "Aaj Ki Raat":{
+        "song_link": "https://aac.saavncdn.com/094/886e82b6f52fc07beb9c2186c6a053ec_160.mp4",
+        "cover_image_link": "https://c.saavncdn.com/094/Aaj-Ki-Raat-From-Stree-2-Hindi-2024-20240724093723-500x500.jpg"
+    },
+    "Sanam Teri Kasam":{
+        "song_link": "https://aac.saavncdn.com/820/faf4da75fb159d2d21630e8e91de2586_160.mp4",
+        "cover_image_link": "https://c.saavncdn.com/820/Sanam-Teri-Kasam-Hindi-2016-20230430081750-500x500.jpg"
+    },
+    "Sanam Re":{
+        "song_link":"https://aac.saavncdn.com/829/60f214aa16aadb4de15be6db3e962232_160.mp4",
+        "cover_image_link": "https://c.saavncdn.com/829/Sanam-Re-Hindi-2015-500x500.jpg"
+    },
+    "Boy in the bubble":{
+        "song_link": "https://aac.saavncdn.com/527/2a2fcb2fb9132111d362435900c337ab_160.mp4",
+        "cover_image_link": "https://c.saavncdn.com/527/Boy-In-The-Bubble-English-2018-20190607042216-500x500.jpg"
+    },
+    "Outrunning Karma":{
+        "song_link":"https://aac.saavncdn.com/450/48cf7cd3f5de80ca36380f88b8f555ce_160.mp4",
+        "cover_image_link": "https://c.saavncdn.com/450/Narrated-For-You-English-2018-20190607041811-500x500.jpg"
+    },
+    "Hometown":{
+        "song_link":"https://aac.saavncdn.com/160/11d38b32358568ec0a992be0d94dc41e_160.mp4",
+        "cover_image_link": "https://c.saavncdn.com/160/Blurryface-English-2015-20240524074720-500x500.jpg"
+    },
+    "Sweater Weather":{
+        "song_link":"https://aac.saavncdn.com/834/18f56ba72edfe2bfab7210c173b9a5c3_160.mp4",
+        "cover_image_link": "https://c.saavncdn.com/834/I-Love-You--English-2013-20220323205211-500x500.jpg"
+    },
+    "Sex, Drugs etc.":{
+        "song_link": "https://aac.saavncdn.com/486/13041d293173074c5feab73b71562777_160.mp4",
+        "cover_image_link": "https://c.saavncdn.com/486/Chit-Chat-English-2016-20220531225013-500x500.jpg"
+    },
+    "The Funeral":{
+        "song_link": "https://aac.saavncdn.com/068/f78f488659c0c4064611ca0663be38b1_160.mp4",
+        "cover_image_link": "https://c.saavncdn.com/068/Everything-All-The-Time-English-2006-20190607052517-500x500.jpg"
+    },
+    "Little Dark Age":{
+        "song_link": "https://aac.saavncdn.com/409/79f328b505a70dc25674942d12f547f6_160.mp4",
+        "cover_image_link": "https://c.saavncdn.com/409/Little-Dark-Age-English-2018-20180202200304-500x500.jpg"
     }
 }

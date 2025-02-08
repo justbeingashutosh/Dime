@@ -13,6 +13,7 @@ let hide = document.querySelector("#hide")
 let sidebar = document.querySelector("#sidebar")
 const navels = document.querySelectorAll(".navels")
 const nav =  document.querySelector(".nav")
+let historyContainer = document.querySelector(".historycontainer")
 const searchBox = document.querySelector(".searchbox")
 // let history = new set()
 let globalplay = document.querySelector("#barplay")
@@ -33,6 +34,26 @@ cards.forEach(card=>{
         card.getElementsByTagName("img")[0].setAttribute("src", songData[song_name]["cover_image_link"])
     }
 })}
+
+
+function createBanner(hd, img){
+    let banner = document.createElement("div")
+    banner.classList.add("banner")
+    let bannerhead = document.createElement("div")
+    bannerhead.classList.add("songname")
+    bannerhead.classList.add("bannerhead")
+    bannerhead.textContent = hd
+    let bannerimg = document.createElement("div")
+    bannerimg.classList.add("bannerimg")
+    let bannerthumb = document.createElement("img")
+    bannerthumb.setAttribute("src", img)
+    bannerthumb.classList.add("bannerthumb")
+    bannerimg.appendChild(bannerthumb)
+    banner.appendChild(bannerimg)
+    banner.appendChild(bannerhead)
+    return banner
+}
+
 
 cards.forEach(card => {
     let audio = null
@@ -57,6 +78,7 @@ cards.forEach(card => {
         }
         audio.play()
         thumbnail.setAttribute("src", card.getElementsByTagName("img")[0].getAttribute("src"))
+        historyContainer.prepend(createBanner(card.querySelector(".songname").textContent, card.getElementsByTagName("img")[0].getAttribute("src")))
         player.style.display = "flex"
         currentAudio = audio
         progressbar.max = currentAudio.duration
@@ -130,7 +152,7 @@ navels.forEach(navel => {
             document.querySelector(".searchlistcontainer").style.display = "none"
             matchingsongslist.style.display = "none"
 
-            document.querySelector(".historycontainer").style.display = "block"
+            document.querySelector(".historycontainer").style.display = "flex"
         }
         else{
             document.querySelectorAll(".platteritem").forEach(platteritem=>{
@@ -199,6 +221,8 @@ function createCard(coverImage, mediaUrl, songName) {
         }
 
         audio.play();
+        // historyContainer.prepend(createBanner(searchCard.querySelector(".songname").textContent, searchCard.getElementsByTagName("img")[0].getAttribute("src")))
+
         player.style.display = "flex";
         thumbnail.setAttribute("src", coverImage);
 
@@ -263,8 +287,8 @@ searchBox.addEventListener('input', async () => {
         matchingsongslist.innerHTML = "";
 
         // Extract top 5 suggestions (excluding first one)
-        const matchingsongs = searchData.data.results.length >= 5
-            ? searchData.data.results.slice(1, 5)
+        const matchingsongs = searchData.data.results.length >= 8
+            ? searchData.data.results.slice(1, 8)
             : searchData.data.results.slice(1);
 
         // Append matching songs to `matchingsongslist`
@@ -311,6 +335,8 @@ searchBox.addEventListener('input', async () => {
             }
 
             audio.play();
+        historyContainer.prepend(createBanner(searchCard.querySelector(".songname").textContent, searchCard.getElementsByTagName("img")[0].getAttribute("src")))
+
             player.style.display = "flex"
             thumbnail.setAttribute("src", coverImage)
 
