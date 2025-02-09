@@ -104,8 +104,14 @@ aside{
 .plattercards{
     height: fit-content;
     /* border: solid white 2px; */
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    /* flex-wrap: wrap; */
+    grid-auto-flow: column;
+    scroll-behavior: auto;
+    overflow-y: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
     gap: 30px;
 }
 .songname{

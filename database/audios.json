@@ -98,5 +98,17 @@
     "Little Dark Age":{
         "song_link": "https://aac.saavncdn.com/409/79f328b505a70dc25674942d12f547f6_160.mp4",
         "cover_image_link": "https://c.saavncdn.com/409/Little-Dark-Age-English-2018-20180202200304-500x500.jpg"
+    },
+    "Ishq":{
+        "song_link":"https://aac.saavncdn.com/306/14006318885e9fbbd00964ceba480111_160.mp4",
+        "cover_image_link": "https://c.saavncdn.com/306/Lost-Found-Hindi-2024-20240517153134-500x500.jpg"
+    },
+    "Millionaire":{
+        "song_link": "https://aac.saavncdn.com/173/af61d1cf779677cd767692c0a7f3301f_160.mp4",
+        "cover_image_link": "https://c.saavncdn.com/173/GLORY-Hindi-2024-20250117161048-500x500.jpg"
+    },
+    "Arjun Vailley":{
+        "song_link": "https://aac.saavncdn.com/092/d9de9a7d46dca31c86b5d25c22a8f62b_160.mp4",
+        "cover_image_link": "https://c.saavncdn.com/092/ANIMAL-Hindi-2023-20231124191036-500x500.jpg"
     }
 }

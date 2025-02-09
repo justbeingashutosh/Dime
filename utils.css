@@ -87,6 +87,21 @@
     align-items: center;
 
 }
+
+.expand{
+    background-color: black;
+    color: whitesmoke;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-right: 4%;
+    font-size: 1.5em;
+}
+
+.expand:hover{
+    color: rgb(57, 188, 125);
+}
+
 #thumbdiv{
     /* border: solid white 2px; */
     height: 55px;
