@@ -6,6 +6,7 @@ let currentPlay = null
 let keys = []
 const player = document.querySelector("#player")
 let thumbnail = document.querySelector("#thumb")
+let fullscrcanvas = document.querySelector(".fullscr-canvas")
 let progressbar = document.querySelector("#progressbar")
 let hide = document.querySelector("#hide")
 let sidebar = document.querySelector("#sidebar")
@@ -16,6 +17,7 @@ const searchBox = document.querySelector(".searchbox")
 let globalplay = document.querySelector("#barplay")
 let searchList = document.querySelector(".searchlistcontainer")
 let matchingsongslist = document.querySelector(".matchingsongslist")
+let fullscrbtn = document.querySelector(".expand")
 fetch("./database/audios.json")
     .then(response => response.json())
     .then(data => {
@@ -51,6 +53,19 @@ function createBanner(hd, img){
     return banner
 }
 
+
+function openFullscreen(elem, imgsrc) {
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.webkitRequestFullscreen) { /* Safari */
+      elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE11 */
+      elem.msRequestFullscreen();
+    }
+    fullscrcanvas.getElementsByTagName("img")[0].setAttribute("src", imgsrc)
+    // thumbdiv.style.height = "500px"
+    // thumbdiv.style.width = "500px"
+  }
 
 
 function addToHistory(songName, imgSrc) {
@@ -141,6 +156,11 @@ cards.forEach(card => {
         globalplay.innerHTML = '<i class="fa-solid fa-play"></i>'
 
     })
+})
+
+
+fullscrbtn.addEventListener('click', ()=>{
+    openFullscreen(fullscrcanvas, thumbnail.getAttribute("src"))
 })
 
 hide.addEventListener('click', ()=>{

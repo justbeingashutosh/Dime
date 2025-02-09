@@ -10,7 +10,7 @@
 .card:hover{
     box-shadow: 0px 0px 40px rgba(255, 255, 255, 0.334);
 }
-.card img{
+.card img, .fullscr-canvas img{
     width: inherit;
     height: auto;
     border-radius: 20px;
@@ -44,6 +44,33 @@
     height: 72px;
     /* border: solid red 2px; */
 }
+/* .player:fullscreen+#thumbdiv{
+    height: 200px;
+    width: 200px;
+} */
+.fullscr-canvas{
+    display: none;
+}
+
+.fullscr-canvas:fullscreen{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: brown;
+    z-index: 30;
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+.canvas-img-container{
+    height: 400px;
+    width: 400px;
+    margin-block: auto;
+    margin-left: 10%;
+    border:solid yellow 3px;
+}
+
 .playerleft{
     display: flex;
     /* border: solid white 2px; */
