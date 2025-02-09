@@ -3,8 +3,6 @@ let songData = {}
 let currentAudio = null
 let currentPause = null
 let currentPlay = null
-// let title = null
-// let titleElement = null
 let keys = []
 const player = document.querySelector("#player")
 let thumbnail = document.querySelector("#thumb")
@@ -15,7 +13,6 @@ const navels = document.querySelectorAll(".navels")
 const nav =  document.querySelector(".nav")
 let historyContainer = document.querySelector(".historycontainer")
 const searchBox = document.querySelector(".searchbox")
-// let history = new set()
 let globalplay = document.querySelector("#barplay")
 let searchList = document.querySelector(".searchlistcontainer")
 let matchingsongslist = document.querySelector(".matchingsongslist")
@@ -55,6 +52,43 @@ function createBanner(hd, img){
 }
 
 
+
+function addToHistory(songName, imgSrc) {
+    let existingBanner = [...historyContainer.children].find(banner => 
+        banner.querySelector(".songname").textContent.trim() === songName
+    );
+
+    if (existingBanner) {
+        
+        historyContainer.prepend(existingBanner);
+    } else {
+        
+        historyContainer.prepend(createBanner(songName, imgSrc));
+    }
+}
+
+
+
+function updateDownloadLink(songUrl, name) {
+    const downloadBtn = document.querySelector(".download");
+    downloadBtn.addEventListener('click', ()=>{
+        fetch(songUrl, { mode: "cors" })
+        .then(response => response.blob())
+        .then(blob => {
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = name + ".mp3";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        })
+        .catch(error => console.error("Download failed:", error));
+    })
+    
+}
+
 cards.forEach(card => {
     let audio = null
     let image = null
@@ -73,17 +107,14 @@ cards.forEach(card => {
             if(currentAudio && currentAudio!=audio){
             currentAudio.currentTime = 0
             currentAudio.pause()
-            // if(currentPause&&currentPlay){currentPlay.style.display = "block"
-            // currentPause.style.display = "none"}
         }
+        updateDownloadLink(songData[title]["song_link"], title);
         audio.play()
         thumbnail.setAttribute("src", card.getElementsByTagName("img")[0].getAttribute("src"))
-        historyContainer.prepend(createBanner(card.querySelector(".songname").textContent, card.getElementsByTagName("img")[0].getAttribute("src")))
+        addToHistory(title, card.getElementsByTagName("img")[0].getAttribute("src"));
         player.style.display = "flex"
         currentAudio = audio
         progressbar.max = currentAudio.duration
-        // currentPlay = playbutton
-        // currentPause = pausebutton
         playbutton.style.display = "none"
         globalplay.innerHTML = '<i class="fa-solid fa-pause"></i>'
         pausebutton.style.display = "block"
@@ -193,7 +224,7 @@ function createCard(coverImage, mediaUrl, songName) {
 
     let head = document.createElement("div");
     head.classList.add("songname");
-    head.textContent = songName;  // <-- Fix applied here
+    head.textContent = songName;
 
     let playButton = document.createElement("button");
     let pauseButton = document.createElement("button");
@@ -211,6 +242,7 @@ function createCard(coverImage, mediaUrl, songName) {
     let audio = new Audio(mediaUrl);
 
     playButton.addEventListener('click', () => {
+        updateDownloadLink(mediaUrl, songName);
         if (currentAudio && currentAudio !== audio) {
             currentAudio.currentTime = 0;
             currentAudio.pause();
@@ -221,7 +253,7 @@ function createCard(coverImage, mediaUrl, songName) {
         }
 
         audio.play();
-        // historyContainer.prepend(createBanner(searchCard.querySelector(".songname").textContent, searchCard.getElementsByTagName("img")[0].getAttribute("src")))
+        addToHistory(songName, coverImage);
 
         player.style.display = "flex";
         thumbnail.setAttribute("src", coverImage);
@@ -262,7 +294,7 @@ searchBox.addEventListener('input', async () => {
     const songName = searchBox.value.trim();
     if (songName === "") {
         searchList.textContent = "";
-        matchingsongslist.innerHTML = ""; // Clear previous matches
+        matchingsongslist.innerHTML = ""; 
         return;
     }
 
@@ -275,23 +307,20 @@ searchBox.addEventListener('input', async () => {
 
         if (!searchData.success || searchData.data.results.length === 0) {
             searchList.innerHTML = "Song Not Found!";
-            matchingsongslist.innerHTML = ""; // Clear previous matches
+            matchingsongslist.innerHTML = "";
             return;
         }
 
-        const song = searchData.data.results[0]; // First search result
-        const coverImage = song.image[2].url; // 3rd quality image
-        const mediaUrl = song.downloadUrl[4].url; // High-quality MP4 URL
+        const song = searchData.data.results[0]; 
+        const coverImage = song.image[2].url; 
+        const mediaUrl = song.downloadUrl[4].url;
 
-        // Clear previous matching songs
         matchingsongslist.innerHTML = "";
 
-        // Extract top 5 suggestions (excluding first one)
         const matchingsongs = searchData.data.results.length >= 8
             ? searchData.data.results.slice(1, 8)
             : searchData.data.results.slice(1);
 
-        // Append matching songs to `matchingsongslist`
         matchingsongs.forEach(song1 => {
             matchingsongslist.appendChild(createCard(song1.image[2].url, song1.downloadUrl[4].url, song1.name));
         });
@@ -325,6 +354,7 @@ searchBox.addEventListener('input', async () => {
         let audio = new Audio(mediaUrl);
 
         playButton.addEventListener('click', () => {
+            updateDownloadLink(mediaUrl, head.textContent);
             if (currentAudio && currentAudio !== audio) {
                 currentAudio.currentTime = 0;
                 currentAudio.pause();
@@ -335,7 +365,9 @@ searchBox.addEventListener('input', async () => {
             }
 
             audio.play();
-        historyContainer.prepend(createBanner(searchCard.querySelector(".songname").textContent, searchCard.getElementsByTagName("img")[0].getAttribute("src")))
+
+        addToHistory(searchCard.querySelector(".songname").textContent, searchCard.getElementsByTagName("img")[0].getAttribute("src"));
+        // historyContainer.prepend(createBanner(searchCard.querySelector(".songname").textContent, searchCard.getElementsByTagName("img")[0].getAttribute("src")))
 
             player.style.display = "flex"
             thumbnail.setAttribute("src", coverImage)
