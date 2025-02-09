@@ -71,7 +71,12 @@ function addToHistory(songName, imgSrc) {
 
 function updateDownloadLink(songUrl, name) {
     const downloadBtn = document.querySelector(".download");
-    downloadBtn.addEventListener('click', ()=>{
+    if (downloadBtn) {
+        // Remove previous event listeners
+        downloadBtn.replaceWith(downloadBtn.cloneNode(true));
+        const newDownloadBtn = document.querySelector(".download");
+    
+    newDownloadBtn.addEventListener('click', ()=>{
         fetch(songUrl, { mode: "cors" })
         .then(response => response.blob())
         .then(blob => {
@@ -86,6 +91,7 @@ function updateDownloadLink(songUrl, name) {
         })
         .catch(error => console.error("Download failed:", error));
     })
+}
     
 }
 
