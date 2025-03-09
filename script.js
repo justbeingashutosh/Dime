@@ -8,6 +8,7 @@ const player = document.querySelector("#player")
 let thumbnail = document.querySelector("#thumb")
 let fullscrcanvas = document.querySelector(".fullscr-canvas")
 let progressbar = document.querySelector("#progressbar")
+let progressbarContainer = document.querySelector("#progress")
 let hide = document.querySelector("#hide")
 let sidebar = document.querySelector("#sidebar")
 const navels = document.querySelectorAll(".navels")
@@ -35,7 +36,7 @@ cards.forEach(card=>{
 })}
 
 
-function createBanner(hd, img){
+function createBanner(hd, img, audioSrc) {
     let banner = document.createElement("div")
     banner.classList.add("banner")
     let bannerhead = document.createElement("div")
@@ -50,6 +51,60 @@ function createBanner(hd, img){
     bannerimg.appendChild(bannerthumb)
     banner.appendChild(bannerimg)
     banner.appendChild(bannerhead)
+    console.log(audioSrc)
+    if(audioSrc){
+        banner.addEventListener("click", () => {
+            let audio = null
+            audio = new Audio(audioSrc);
+            console.log(audioSrc)
+
+
+
+
+            if(currentAudio && currentAudio!=audio){
+                if(currentPlay&&currentPause){
+                    currentPlay.style.display = "block"
+                    currentPause.style.display = "none"
+                }
+            currentAudio.currentTime = 0
+            currentAudio.pause()
+        }
+        updateDownloadLink(audioSrc, hd);
+        audio.play()
+        thumbnail.setAttribute("src", img)
+        addToHistory(hd, img, audioSrc);
+        player.style.display = "flex"
+        currentAudio = audio
+        // progressbar.maxWidth = currentAudio.duration
+        // playbutton.style.display = "none"
+        globalplay.innerHTML = '<i class="fa-solid fa-pause"></i>'
+        // pausebutton.style.display = "block"
+        currentPlay = null
+        currentPause = null
+        progressbarContainer.addEventListener("mousedown", (e) => {
+            const containerWidth = progressbarContainer.offsetWidth; // Total width of the container
+            const clickPosition = e.offsetX; // Click position within the container
+            const newTime = (clickPosition / containerWidth) * currentAudio.duration; 
+            currentAudio.currentTime = newTime;
+        });
+        if(currentAudio&&currentAudio.play()){
+            setInterval(()=>{
+                progressbar.style.width = `${((currentAudio.currentTime/currentAudio.duration)*100)}%`
+                if(currentAudio.currentTime==currentAudio.duration){
+                    // pausebutton.style.display = "none"
+                    // playbutton.style.display = "block"
+                    globalplay.innerHTML = '<i class="fa-solid fa-play"></i>'
+                }
+            }, 1000)
+        }
+        
+
+
+
+
+
+        })
+    }
     return banner
 }
 
@@ -68,7 +123,7 @@ function openFullscreen(elem, imgsrc) {
   }
 
 
-function addToHistory(songName, imgSrc) {
+function addToHistory(songName, imgSrc, audioSrc) {
     let existingBanner = [...historyContainer.children].find(banner => 
         banner.querySelector(".songname").textContent.trim() === songName
     );
@@ -78,7 +133,8 @@ function addToHistory(songName, imgSrc) {
         historyContainer.prepend(existingBanner);
     } else {
         
-        historyContainer.prepend(createBanner(songName, imgSrc));
+        historyContainer.prepend(createBanner(songName, imgSrc, audioSrc));
+        // console.log(audioSrc)
     }
 }
 
@@ -126,25 +182,40 @@ cards.forEach(card => {
             card.getElementsByTagName("img")[0].setAttribute("src", image)
             playbutton.addEventListener('click', ()=>{
             if(currentAudio && currentAudio!=audio){
+                if(currentPlay&&currentPause){
+                    currentPlay.style.display = "block"
+                    currentPause.style.display = "none"
+                }
             currentAudio.currentTime = 0
             currentAudio.pause()
         }
         updateDownloadLink(songData[title]["song_link"], title);
         audio.play()
         thumbnail.setAttribute("src", card.getElementsByTagName("img")[0].getAttribute("src"))
-        addToHistory(title, card.getElementsByTagName("img")[0].getAttribute("src"));
+        // console.log(songData[title]["song_link"])
+        addToHistory(title, card.getElementsByTagName("img")[0].getAttribute("src"), songData[title]["song_link"]);
         player.style.display = "flex"
         currentAudio = audio
-        progressbar.max = currentAudio.duration
+        // progressbar.maxWidth = currentAudio.duration
         playbutton.style.display = "none"
         globalplay.innerHTML = '<i class="fa-solid fa-pause"></i>'
         pausebutton.style.display = "block"
-        progressbar.onchange = ()=>{
-            currentAudio.currentTime = progressbar.value
-        }
+        currentPlay = playbutton
+        currentPause = pausebutton
+        progressbarContainer.addEventListener("mousedown", (e) => {
+            const containerWidth = progressbarContainer.offsetWidth; // Total width of the container
+            const clickPosition = e.offsetX; // Click position within the container
+            const newTime = (clickPosition / containerWidth) * currentAudio.duration; 
+            currentAudio.currentTime = newTime;
+        });
         if(currentAudio&&currentAudio.play()){
             setInterval(()=>{
-                progressbar.value = currentAudio.currentTime
+                progressbar.style.width = `${((currentAudio.currentTime/currentAudio.duration)*100)}%`
+                if(currentAudio.currentTime==currentAudio.duration){
+                    // pausebutton.style.display = "none"
+                    // playbutton.style.display = "block"
+                    globalplay.innerHTML = '<i class="fa-solid fa-play"></i>'
+                }
             }, 1000)
         }
         
@@ -279,7 +350,7 @@ function createCard(coverImage, mediaUrl, songName) {
         }
 
         audio.play();
-        addToHistory(songName, coverImage);
+        addToHistory(songName, coverImage, mediaUrl);
 
         player.style.display = "flex";
         thumbnail.setAttribute("src", coverImage);
@@ -293,13 +364,21 @@ function createCard(coverImage, mediaUrl, songName) {
         globalplay.innerHTML = '<i class="fa-solid fa-pause"></i>';
         pauseButton.style.display = "block";
 
-        progressbar.onchange = () => {
-            currentAudio.currentTime = progressbar.value;
-        };
+        progressbarContainer.addEventListener("mousedown", (e) => {
+            const containerWidth = progressbarContainer.offsetWidth; // Total width of the container
+            const clickPosition = e.offsetX; // Click position within the container
+            const newTime = (clickPosition / containerWidth) * currentAudio.duration; 
+            currentAudio.currentTime = newTime;
+        });
 
         if (currentAudio && currentAudio.play()) {
             setInterval(() => {
-                progressbar.value = currentAudio.currentTime;
+                progressbar.style.width = `${((currentAudio.currentTime/currentAudio.duration)*100)}%`
+                if(currentAudio.currentTime==currentAudio.duration){
+                    // pausebutton.style.display = "none"
+                    // playbutton.style.display = "block"
+                    globalplay.innerHTML = '<i class="fa-solid fa-play"></i>'
+                }
             }, 1000);
         }
     });
@@ -392,7 +471,7 @@ searchBox.addEventListener('input', async () => {
 
             audio.play();
 
-        addToHistory(searchCard.querySelector(".songname").textContent, searchCard.getElementsByTagName("img")[0].getAttribute("src"));
+        addToHistory(searchCard.querySelector(".songname").textContent, searchCard.getElementsByTagName("img")[0].getAttribute("src"), mediaUrl);
         // historyContainer.prepend(createBanner(searchCard.querySelector(".songname").textContent, searchCard.getElementsByTagName("img")[0].getAttribute("src")))
 
             player.style.display = "flex"
@@ -407,13 +486,21 @@ searchBox.addEventListener('input', async () => {
             globalplay.innerHTML = '<i class="fa-solid fa-pause"></i>';
             pauseButton.style.display = "block";
 
-            progressbar.onchange = () => {
-                currentAudio.currentTime = progressbar.value;
-            };
+            progressbarContainer.addEventListener("mousedown", (e) => {
+                const containerWidth = progressbarContainer.offsetWidth; // Total width of the container
+                const clickPosition = e.offsetX; // Click position within the container
+                const newTime = (clickPosition / containerWidth) * currentAudio.duration; 
+                currentAudio.currentTime = newTime;
+            });
 
             if (currentAudio && currentAudio.play()) {
                 setInterval(() => {
-                    progressbar.value = currentAudio.currentTime;
+                    progressbar.style.width = `${((currentAudio.currentTime/currentAudio.duration)*100)}%`
+                if(currentAudio.currentTime==currentAudio.duration){
+                    // pausebutton.style.display = "none"
+                    // playbutton.style.display = "block"
+                    globalplay.innerHTML = '<i class="fa-solid fa-play"></i>'
+                }
                 }, 1000);
             }
         });

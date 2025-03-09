@@ -78,6 +78,7 @@
 }
 .playercenter{
     /* border: solid white 2px; */
+    padding-block: 5px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -96,15 +97,64 @@
     align-items: start;
     justify-content: center;
 }
-#progress{
-    /* border: solid yellow 3px; */
+/* #progress{
     flex-grow: 1;
+} */
+
+#prev, #next{
+    height: 30px;
+    width: 30px;
+    border-radius: 100px;
+    background-color: #2d374800;
+    color: white;
+    font-size: 2em;
+    cursor: pointer;
+    /* background-color: rgb(57, 188, 125); */
+    border: none;
+    text-align: center;
+    margin-left: 5%;
 }
-#progressbar{
+
+#progress {
+    width: 100%;
+    max-width: 600px;
+    flex-grow: 1;
+    height: fit-content;
+    background: #2d3748;
+    border-radius: 10px;
+    /* border: 2px solid red; */
+    /* margin-bottom: 15px; */
+    overflow: hidden;
+    margin-bottom: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    position: relative;
+  }
+
+/* #progressbar{
     width: 100%;
     height: 7px;
-    /* -webkit-appearance: none; */
-}
+} */
+
+
+
+.progressbar {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, #38bdf8, #81e6d9);
+    /* animation:
+      fill-up 5s ease-in-out forwards,
+      update-text 5s ease-in-out forwards,
+      completion 5s ease-in-out forwards; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0%;
+    left: 0;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+  }
 
 .playerright{
     /* border: solid white 2px; */
