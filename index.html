@@ -27,6 +27,7 @@
             <div class="home navels active"><i class="fa-solid fa-house"></i> <div class="text">Home</div></div>
             <div class="search navels"><i class="fa-solid fa-magnifying-glass"></i><div class="text">Search</div></div>
             <div class="history navels"><i class="fa-regular fa-clock"></i><div class="text">History</div></div>
+            <div class="liked navels"><i class="fa-regular fa-heart"></i><div class="text">Liked</div></div>
         </div>
         </aside>
         <div class="content">
@@ -37,6 +38,7 @@
                 <div class="searchlistcontainer"></div>
                 <div class="matchingsongslist"></div>
                 <div class="historycontainer"></div>
+                <div class="likedcontainer"></div>
                 
                 <div class="newarrivals platteritem">
                     <div class="platterhead">New Arrivals</div>
@@ -273,6 +275,11 @@
             </div>
         </div>
         <div class="playerright">
+            <input type="checkbox" class="like-checkbox" id="like-checkbox"/>
+            <label class="like" for="like-checkbox">
+                <i class="fa-solid fa-heart"></i>
+            </label>
+            
             <button class="expand"><i class="fa-solid fa-expand"></i></button>
             <a class="download" download><i class="fa-solid fa-circle-arrow-down"></i></a>
         </div>

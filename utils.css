@@ -84,7 +84,7 @@
     flex-direction: column;
 
 }
-.historycontainer{
+.historycontainer, .likedcontainer{
     display: none;
     flex-direction: column;
     /* border: solid red 2px; */
@@ -173,6 +173,22 @@
     cursor: pointer;
     margin-right: 4%;
     font-size: 1.5em;
+}
+.like{
+    background-color: black;
+    color: whitesmoke;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-right: 4%;
+    font-size: 1.5em;
+
+}
+.like-checkbox{
+    display: none;
+}
+.like-checkbox:checked + .like{
+    color: rgb(57, 188, 125); /* Green when checked */
 }
 
 .expand:hover{
